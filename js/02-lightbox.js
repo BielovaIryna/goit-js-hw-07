@@ -11,9 +11,10 @@ const renderList =(arr, container)=>{
   container.insertAdjacentHTML("beforeend", markup);
 }
 renderList(galleryItems, listEl);
-let lightbox = new SimpleLightbox('.gallery a', {captions: true,
+const lightbox = new SimpleLightbox('.gallery a', { сaptions: true,
 	captionsData: 'alt',
 	captionDelay: 250,});
+
 
 	
 console.log(galleryItems);
