@@ -15,10 +15,10 @@ const renderList =(arr, container)=>{
   container.insertAdjacentHTML("beforeend", markup);
 }
 const handleListClick = (event) =>{
-	const {target, currentTurget} = event;
+	const {target} = event;
 	event.preventDefault();
-	
-	if (target === currentTurget){
+	// без цього спрацьовує дія за замовчуванням посилання, а саме - посилання на іншу картинку
+	if (target.tagName !== "IMG"){
 		return
 	}
 	const img = galleryItems.find(item=>item.description===event.target.getAttribute("alt"));
@@ -41,11 +41,7 @@ const modalClose =(event =>{
 		document.removeEventListener("keydown", modalClose)
 	}
 	})
-
- if(instance.visible()){
 	document.addEventListener("keydown", modalClose)
- }
-
 }
 
 renderList(galleryItems, listEl);
